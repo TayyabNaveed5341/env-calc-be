@@ -1,5 +1,6 @@
 <?php
 
+use App\Repositories\ApplianceRepository;
 use App\Http\Resources\Recommendation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -15,7 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('appliances', function(){
+    return ApplianceRepository::all();
+});
+
 Route::post('consumption', function(Request $r){
+    
     return [
         "upgrades"=>[
             [
